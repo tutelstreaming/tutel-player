@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" media="(prefers-color-scheme: dark)" style="background-color: black;">
+<head>
+        <meta charset="UTF-8">
+        <title>TutelPlayer</title>
+        <!--
+        You will either have to replace Pico CSS or
+        create variable overrides.
+        https://picocss.com/
+        -->
+        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+        <style>
+                .grid-container {
+                        display: grid;
+                        grid-gap: 0px;
+                        width: 100vw;
+                        height: 100vh;
+                        grid-template-columns: repeat(4, 1fr);
+                        grid-template-rows: repeat(4, 1fr);
+                        grid-column-gap: 0px;
+                        grid-row-gap: 0px;
+                        overflow: hidden;
+                }
+
+                .dropdown-menu {
+                        display: none;
+                }
+
+                .dropdown:hover .dropdown-menu {
+                        display: flex;
+                        flex-direction: column;
+                        background-color: rgba(43, 43, 43, 0.692);
+                        border-radius: 10px;
+                }
+
+                .highlightable {
+                        background-color: transparent;
+                        text-shadow: 1px -1px 40px #000000;
+                        transition: color 0.2s ease-in-out;
+                        margin-left: 15px;
+                }
+
+                .highlightable:hover {
+                        background-color: transparent;
+                        color: yellow;
+                        text-shadow: 1px -1px 40px #000000;
+                        margin-left: 15px;
+                }
+
+                .dropdown-item.selected {
+                        background-color: transparent;
+                        opacity: 0.8;
+                        color: rgb(26, 160, 48);
+                        text-shadow: 1px -1px 40px #000000;
+                }
+        </style>
+</head>
+<body>
+        <!-- HTML for the dropdown menu -->
+        <ul style="position: absolute; top: 0; left: 0; z-index: 9999; list-style: none;">
+                <li class="dropdown" id="dropdownArea" style="position: absolute; top: 0; left: 0; z-index: 9999; list-style: none;">
+                                <summary id="dropdownMenuButton" data-toggle="dropdown" role="button" class="outline">Streams</summary>
+                                <div class="dropdown-menu">
+                                        <!--  Add the items from the link here -->
+                                </div>
+                </li>
+        </ul>
+        
+        <div>
+                <script src="https://cdn.jsdelivr.net/npm/ovenplayer/dist/ovenplayer.js"></script>
+                <!-- JavaScript to populate the dropdown menu -->
+                <script>
+                        // Define where the WebRTC stream will be pulled from.
+                        // Example: 
+                        // TLS:  "wss://example.com:3334/app/"
+                        // Non-TLS:  "ws://example.com:3333/app/"
+                        const webrtcUrl = "ws://example.com:3333/app/";
+
+                        // Edit this variable if you want a custom string to display
+                        // for the drop-down menu in the top left corner. 
+                        var mainDropdownText = "";
+
+                        // This is used to monitoring for user cursor movements
+                        // over the dropdown area.
+                        const dropdownArea = document.getElementById('dropdownArea');
+
+                        // This variable is used for managing the color of the "Streams" dropdownMenu
+                        // coloring and transparancy.
+                        const dropdownMenuButton = document.getElementById('dropdownMenuButton');
+
+                        // Follow the README on https://github.com/tutelstreaming/tutel-player on how to setup
+                        // the Google Sheets and get the URL required.
+                        const googleSheetsUrl = "";
+
+                        // Fetch the items from URL
+                        fetch(googleSheetsUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                                // Get the values array from the JSON
+                                const values = data.values;
+
+                                // Flatten the values array (it is currently an array of arrays)
+                                const flatValues = values.flat();
+
+                                let order = 0;
+                                // Add an item to the dropdown menu for each item in the array
+                                flatValues.forEach(listItem => {
+                                        const dropdownItem = document.createElement('li');
+                                        const dropdownMenu = document.querySelector('.dropdown-menu');
+                                        dropdownItem.classList.add('dropdown-item');
+                                        dropdownItem.classList.add('highlightable');
+                                        // list-style gets rid of the bullet markings for list items
+                                        dropdownItem.style['list-style'] = 'none';
+                                        // Assigns the value of listItem to the displayed text of the menu item
+                                        dropdownItem.innerText = listItem;
+                                        dropdownItem.addEventListener('click', () => {
+                                                dropdownItem.classList.toggle('selected');
+                                                // Each time a toggle event is registered, it will either
+                                                // add a player if the toggle is 'selected' or
+                                                // remove a player if the toggle is not 'selected'
+                                                if (dropdownItem.classList.contains('selected')) {
+                                                        let streamId = listItem;
+                                                        addPlayer(streamId);
+                                                        updateGrid();
+                                                } else {
+                                                        let streamId = listItem;
+                                                        removePlayer(streamId);
+                                                        updateGrid();
+                                                }
+                                        });
+                                        // Appends the dropdownItem to the list
+                                        dropdownMenu.appendChild(dropdownItem);
+                                        order++;
+                                });
+                        });
+
+                        dropdownArea.addEventListener("mouseover", function() {
+                                dropdownMenuButton.style.setProperty('--primary', '');
+                        });
+
+                        dropdownArea.addEventListener("mouseout", function() {
+                                let playerCheck = document.getElementsByClassName("grid-item");
+                                if (playerCheck.length != 0) {
+                                        dropdownMenuButton.style.setProperty('--primary', 'transparent');
+                                }
+                                else {
+                                        dropdownMenuButton.style.setProperty('--primary', '');
+                                }
+                        });
+
+                        function updateGrid() {
+                                // Updates the positioning & sizing of the players based on the total amount of players
+                                const gridPositions = {
+                                        "1": {
+                                                "1": "1 / 1 / 5 / 5"
+                                        },
+                                        "2": {
+                                                "1": "1 / 1 / 3 / 5",
+                                                "2": "3 / 1 / 5 / 5"
+                                        },
+                                        "3": {
+                                                "1": "1 / 1 / 3 / 5",
+                                                "2": "3 / 1 / 5 / 3",
+                                                "3": "3 / 3 / 5 / 5"
+                                        },
+                                        "4": {
+                                                "1": "1 / 1 / 3 / 3",
+                                                "2": "1 / 3 / 3 / 5",
+                                                "3": "3 / 1 / 5 / 3",
+                                                "4": "3 / 3 / 5 / 5"
+                                        }
+                                }
+                                let elementArray = [];
+                                for (let num = 1; num <= 4; num++) {
+                                        let div = document.getElementById(num.toString());
+                                        if (div) {
+                                        elementArray.push(div);
+                                        }
+                                }
+
+                                for (let num = 0; num < elementArray.length; num++) {
+                                        let divId = elementArray[num].id;
+                                        let gridArea = gridPositions[elementArray.length][(num + 1).toString()];
+                                        elementArray[num].style.gridArea = gridArea;
+                                }
+                        }
+
+                        function startAutoRestartTimer(streamId) {
+                                // refreshTimer should be equal to the desired time in miliseconds (5000 = 5 seconds)
+                                let refreshTimer = 5000;
+                                let playerTimer = OvenPlayer.getPlayerByContainerId(streamId);
+                                playerTimer.on('error', function () {
+                                        // Wait 5 sec and reload.
+                                        window["timer"+streamId] = setTimeout(function () { addPlayer(streamId); }, refreshTimer);
+                                });
+                        }
+
+                        function stopAutoRestartTimer(streamId) {
+                                clearTimeout(window["timer"+streamId]);
+                        }
+
+                        function addPlayer(streamId) {
+                                let div = document.getElementById("players");
+                                let elements = div.getElementsByClassName("ovenplayer");
+                                var player = OvenPlayer.getPlayerByContainerId(streamId);
+                                if (player) {
+                                // code to execute if div with id (streamId) exists
+                                        player.off('error');
+                                        player.remove();
+                                        stopAutoRestartTimer(streamId);
+                                        let playerId = document.getElementById(streamId);
+                                        var player = OvenPlayer.create(playerId, { autoStart : true, autoFallback : true ,mute : true, controls: true,
+                                                sources: [
+                                                        {
+                                                                "file": webrtcUrl + streamId,
+                                                                "type": "webrtc"
+                                                        }
+                                                ]
+                                        })
+                                        startAutoRestartTimer(streamId);
+                                }
+                                else if (elements.length < 4) {
+                                        let outerDiv = document.createElement("div");
+                                        outerDiv.classList.add("grid-item");
+                                        assignDivId(outerDiv);
+                                        let innerDiv = document.createElement("div");
+                                        innerDiv.id = streamId;
+                                        outerDiv.appendChild(innerDiv);
+                                        document.querySelector(".player-grid").appendChild(outerDiv);
+                                        stopAutoRestartTimer(streamId);
+                                        let player = OvenPlayer.create(innerDiv, {
+                                                autoStart : true,
+                                                autoFallback : true ,
+                                                mute : true,
+                                                controls: true,
+                                                sources: [
+                                                {
+                                                        "file": webrtcUrl + streamId,
+                                                        "type": "webrtc"
+                                                }
+                                                ]
+                                        });
+                                        // Reload periodically when OvenPlayer error occurs.
+                                        startAutoRestartTimer(streamId);
+                                };
+                        }
+
+                        function removePlayer(streamId) {
+                                let player = OvenPlayer.getPlayerByContainerId(streamId);
+                                player.off('error');
+                                player.stop();
+                                player.remove();
+                                stopAutoRestartTimer(streamId);
+                                let playerDiv = document.getElementById(streamId)
+                                let parentDiv = playerDiv.parentNode
+                                playerDiv.remove();
+                                parentDiv.remove();
+                        }
+
+                        function assignDivId(outerDiv) {
+                                var elements = document.querySelectorAll(".grid-item");
+                                for (var divIdCounter = 1; divIdCounter <= elements.length + 1; divIdCounter++) {
+                                        var divIdFound = false;
+                                        for (var arrayParser = 0; arrayParser < elements.length; arrayParser++) {
+                                                if (elements[arrayParser].id == divIdCounter.toString()) {
+                                                        divIdFound = true;
+                                                break;
+                                                }
+                                        }
+                                if (!divIdFound) {
+                                        outerDiv.id = divIdCounter.toString();
+                                        break;
+                                        }
+                                }
+                        }
+
+                </script>
+                <div class="grid-container player-grid" id="players"></div>
+        </div>
+
+</body>
+</html>
