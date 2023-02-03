@@ -30,6 +30,8 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 - Please note that only H264 streaming is supported by OvenMediaEngine.  HEVC/H265 or AV1 will not work.
 - Also note that KeyFrames needs to be 1s (second) and B-Frames must be set to 0.
 
+- For different resolutions, use the "Rescale Output" option to lower or increase the resolution of your stream.
+
 ----------
 
 NVIDIA Hardware Encoding
