@@ -1,6 +1,8 @@
 Download and Install OBS (Open Broadcaster Software)
 https://obsproject.com/
 
+If you follow this guide, you'll be setup in no time and have the best settings for a low-latency stream.
+
 ---------------
 OBS Setup (all other options not shown in this tutorial can be left to defaults)
 1) Files -> Settings -> Stream
@@ -24,4 +26,23 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 ![video_settings](https://user-images.githubusercontent.com/124169586/216694799-270182ed-d014-4879-a275-14f9f2d051ee.png)
 
 3) Files -> Settings -> Output
-- 
+- Writing out an explanation for all these settings for three different types of hardware can get wordy.  Please reference the pictures for your hardware specific settings. (AMD/NVIDIA, or CPU-based Encoding)
+- Please note that only H264 streaming is supported by OvenMediaEngine.  HEVC/H265 or AV1 will not work.
+- Also note that KeyFrames needs to be 1s (second) and B-Frames must be set to 0.
+
+----------
+
+NVIDIA Hardware Encoding
+![image](https://user-images.githubusercontent.com/124169586/216698618-4fd81b74-545e-4258-8b3f-c5a4b948d57b.png)
+
+----------
+
+AMD Hardware Encoding
+![output_settings_amd](https://user-images.githubusercontent.com/124169586/216698718-35b90165-1992-4583-86be-4be3427bb0fc.png)
+
+----------
+
+CPU-Based Software Encoding
+![output_settings_h264](https://user-images.githubusercontent.com/124169586/216698845-fda6f48b-0259-4fae-9198-038a75205a87.png)
+
+----------
