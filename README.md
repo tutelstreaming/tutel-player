@@ -10,6 +10,7 @@ This is a configuration guide on how to setup your own instance of OvenMediaEngi
 Please reference this github post if using or modifying our solution.  Thank You.
 
 Our Webpage: https://tutelstreaming.com
+Our Discord: https://discord.gg/z7G7vf5kQX
 
 --------------------
 
