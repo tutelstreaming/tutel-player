@@ -46,6 +46,6 @@ AMD Hardware Encoding
 
 CPU-Based Software Encoding
 
-![output_settings_h264](https://user-images.githubusercontent.com/124169586/216698845-fda6f48b-0259-4fae-9198-038a75205a87.png)
+![output_settings_h264](https://user-images.githubusercontent.com/124169586/216699557-bed07be8-f96a-4a3d-aa57-7809ca0e9aac.png)
 
 ----------
