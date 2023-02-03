@@ -33,16 +33,19 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 ----------
 
 NVIDIA Hardware Encoding
+
 ![image](https://user-images.githubusercontent.com/124169586/216698618-4fd81b74-545e-4258-8b3f-c5a4b948d57b.png)
 
 ----------
 
 AMD Hardware Encoding
+
 ![output_settings_amd](https://user-images.githubusercontent.com/124169586/216698718-35b90165-1992-4583-86be-4be3427bb0fc.png)
 
 ----------
 
 CPU-Based Software Encoding
+
 ![output_settings_h264](https://user-images.githubusercontent.com/124169586/216698845-fda6f48b-0259-4fae-9198-038a75205a87.png)
 
 ----------
