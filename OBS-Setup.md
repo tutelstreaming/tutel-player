@@ -36,7 +36,7 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 
 NVIDIA Hardware Encoding
 
-![image](https://user-images.githubusercontent.com/124169586/216698618-4fd81b74-545e-4258-8b3f-c5a4b948d57b.png | wdith=100)
+![image](https://user-images.githubusercontent.com/124169586/216698618-4fd81b74-545e-4258-8b3f-c5a4b948d57b.png | width=100)
 
 ----------
 
