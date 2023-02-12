@@ -12,7 +12,7 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 - Set "Stream Key" to whatever you have listed in Google Sheets
 - For example: "testuser1"
 
-<img src="https://user-images.githubusercontent.com/124169586/216693786-7512b145-dfcc-49b0-a295-33ab098f8fa3.png" width="35%">
+<img src="https://user-images.githubusercontent.com/124169586/216693786-7512b145-dfcc-49b0-a295-33ab098f8fa3.png" width="40%">
 
 2) Files -> Settings -> Video
 - Set "Base (Canvas) Resolution" to your Monitor's Native Resolution
@@ -23,7 +23,7 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 - Set "Common FPS Values" to either 30 (recommended) or 60
 - While 60 FPS provides a smoother experience, it can make the overall stream look more pixelated.
 
-<img src="https://user-images.githubusercontent.com/124169586/216694799-270182ed-d014-4879-a275-14f9f2d051ee.png" width="35%">
+<img src="https://user-images.githubusercontent.com/124169586/216694799-270182ed-d014-4879-a275-14f9f2d051ee.png" width="40%">
 
 3) Files -> Settings -> Output
 - Writing out an explanation for all these settings for three different types of hardware can get wordy.  Please reference the pictures for your hardware specific settings. (AMD/NVIDIA, or CPU-based Encoding)
@@ -36,19 +36,18 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 
 NVIDIA Hardware Encoding
 
-![image](https://user-images.githubusercontent.com/124169586/216698618-4fd81b74-545e-4258-8b3f-c5a4b948d57b.png | width=100)
-<img src="[https://camo.githubusercontent.com/...](https://user-images.githubusercontent.com/124169586/216698618-4fd81b74-545e-4258-8b3f-c5a4b948d57b.png)" width="100"/>
+<img src="https://user-images.githubusercontent.com/124169586/216698618-4fd81b74-545e-4258-8b3f-c5a4b948d57b.png" width="40%">
 
 ----------
 
 AMD Hardware Encoding
 
-![output_settings_amd](https://user-images.githubusercontent.com/124169586/216698718-35b90165-1992-4583-86be-4be3427bb0fc.png)
+<img src="https://user-images.githubusercontent.com/124169586/216698718-35b90165-1992-4583-86be-4be3427bb0fc.png" width="40%">
 
 ----------
 
 CPU-Based Software Encoding
 
-![output_settings_h264](https://user-images.githubusercontent.com/124169586/216699557-bed07be8-f96a-4a3d-aa57-7809ca0e9aac.png)
+<img src="https://user-images.githubusercontent.com/124169586/216699557-bed07be8-f96a-4a3d-aa57-7809ca0e9aac.png" width="40%">
 
 ----------
