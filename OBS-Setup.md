@@ -23,7 +23,7 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 - Set "Common FPS Values" to either 30 (recommended) or 60
 - While 60 FPS provides a smoother experience, it can make the overall stream look more pixelated.
 
-![video_settings](https://user-images.githubusercontent.com/124169586/216694799-270182ed-d014-4879-a275-14f9f2d051ee.png)
+<img src="https://user-images.githubusercontent.com/124169586/216694799-270182ed-d014-4879-a275-14f9f2d051ee.png" width="35%">
 
 3) Files -> Settings -> Output
 - Writing out an explanation for all these settings for three different types of hardware can get wordy.  Please reference the pictures for your hardware specific settings. (AMD/NVIDIA, or CPU-based Encoding)
