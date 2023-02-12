@@ -51,3 +51,14 @@ CPU-Based Software Encoding
 <img src="https://user-images.githubusercontent.com/124169586/216699557-bed07be8-f96a-4a3d-aa57-7809ca0e9aac.png" width="40%">
 
 ----------
+
+Setting Up A Scene
+
+<img src="https://user-images.githubusercontent.com/58894818/218323631-98773625-269f-45da-adcc-2a0a4e265ede.png" width="40%">
+
+<img src="https://user-images.githubusercontent.com/58894818/218323682-e02fee67-e36c-4140-b8eb-2301220cae0d.png" width="40%">
+
+<img src="https://user-images.githubusercontent.com/58894818/218323722-c6ffd0e1-b05d-4e88-a6b1-e4cfbbce06e9.png" width="40%">
+
+
+
