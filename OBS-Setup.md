@@ -12,7 +12,7 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 - Set "Stream Key" to whatever you have listed in Google Sheets
 - For example: "testuser1"
 
-<img src="https://user-images.githubusercontent.com/124169586/216693786-7512b145-dfcc-49b0-a295-33ab098f8fa3.png" width="50%">
+<img src="https://user-images.githubusercontent.com/124169586/216693786-7512b145-dfcc-49b0-a295-33ab098f8fa3.png" width="35%">
 
 2) Files -> Settings -> Video
 - Set "Base (Canvas) Resolution" to your Monitor's Native Resolution
