@@ -13,7 +13,7 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 - For example: "testuser1"
 
 ![stream_settings](https://user-images.githubusercontent.com/124169586/216693786-7512b145-dfcc-49b0-a295-33ab098f8fa3.png)
-<img src="https://github.com/favicon.ico](https://user-images.githubusercontent.com/124169586/216693786-7512b145-dfcc-49b0-a295-33ab098f8fa3.png)" width="48">
+<img src="https://user-images.githubusercontent.com/124169586/216693786-7512b145-dfcc-49b0-a295-33ab098f8fa3.png" width="48">
 
 2) Files -> Settings -> Video
 - Set "Base (Canvas) Resolution" to your Monitor's Native Resolution
