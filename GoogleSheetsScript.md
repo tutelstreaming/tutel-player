@@ -1,6 +1,6 @@
 To create the Macro to parse your Google Sheets with usernames (streamkeys), follow the instructions below.  Please have your Google Sheets page formated just like the example screenshot.
 
-![image](https://user-images.githubusercontent.com/58894818/218328971-161729e5-d79c-4e01-9b50-ee4a2a595eb2.png)
+<img src="https://user-images.githubusercontent.com/58894818/218328971-161729e5-d79c-4e01-9b50-ee4a2a595eb2.png" width="40%">
 
 
 Go to https://script.google.com/home/
