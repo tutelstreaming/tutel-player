@@ -16,7 +16,7 @@ Our Discord: https://discord.gg/z7G7vf5kQX
 --------------------
 
 TutelPlayer.html
-* HTML/Javascript that parses a GoogleSheets containing stream keys. Can be used as a executed web-app, or hosted as a server such as Apache.
+* HTML/Javascript that parses a GoogleSheets containing stream keys. Can be used as a end-user executed web-app, or hosted as a webpage with Apache or the like.
 
 Server.xml
 * Configuration file that needs to be placed in /opt/ovenmediaengine/bin/origin_conf/ directory for the OvemMediaEngine container.
