@@ -56,12 +56,15 @@ Setting Up A Scene
 
 On the bottom left of the main OBS window, Scene 1 should be created by default.  To the right of that window is "Sources".  Click on the "+" sign to add a Source.
 Either Select "Game Capture" or "Display Capture" if you wish to stream your entire Monitor Display.
+
 <img src="https://user-images.githubusercontent.com/58894818/218323631-98773625-269f-45da-adcc-2a0a4e265ede.png" width="40%">
 
 By default the Mode is set to "Capture any fullscreen application".  However, if you want it to specifically stream Escape From Tarkov for example, the game needs to be running in order for the selection to be available.
+
 <img src="https://user-images.githubusercontent.com/58894818/218323682-e02fee67-e36c-4140-b8eb-2301220cae0d.png" width="40%">
 
 What the end result should look like.  I have multiple Scenes in this example that when I click on them, it changes what is streamed.  This is useful if you want to have a Scene for Full Desktop Streaming and another for just Full Screen Applications.
+
 <img src="https://user-images.githubusercontent.com/58894818/218323722-c6ffd0e1-b05d-4e88-a6b1-e4cfbbce06e9.png" width="40%">
 
 
