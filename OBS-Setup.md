@@ -36,7 +36,7 @@ OBS Setup (all other options not shown in this tutorial can be left to defaults)
 
 NVIDIA Hardware Encoding
 
-<img src="https://user-images.githubusercontent.com/124169586/216698618-4fd81b74-545e-4258-8b3f-c5a4b948d57b.png" width="50%">
+<img src="https://user-images.githubusercontent.com/58894818/218870903-6bbe604f-6086-4652-892d-8042eab3a825.png" width="40%">
 
 ----------
 
@@ -48,9 +48,10 @@ AMD Hardware Encoding
 
 CPU-Based Software Encoding
 
-<img src="https://user-images.githubusercontent.com/124169586/216699557-bed07be8-f96a-4a3d-aa57-7809ca0e9aac.png" width="40%">
+<img src="https://user-images.githubusercontent.com/58894818/218871007-fe913024-cd12-4c3f-8a49-087fe9afef2a.png" width="40%">
 
 ----------
+
 
 Setting Up A Scene
 
